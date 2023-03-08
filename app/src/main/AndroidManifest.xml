@@ -9,11 +9,14 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:debuggable="true"
+        tools:replace='android:debuggable'
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TPI"
         tools:targetApi="31"
-        android:name=".application.JarvisApplication">
+        android:name="com.jarvis.john.securitydetections.JarvisApplication"
+        tools:ignore="HardcodedDebugMode">
         <activity
             android:name=".ui.dashboard.TPIDashBoardActivity"
             android:exported="true"
@@ -21,12 +24,22 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".BaseActivity"
+            android:name=".ui.base.BaseActivity"
             android:exported="false" />
+        <activity
+            android:name="com.jarvis.john.securitydetections.ui.JarvisLauncherActivity"
+            android:exported="true"
+            android:theme="@style/Theme_Security_BackgroundImage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
